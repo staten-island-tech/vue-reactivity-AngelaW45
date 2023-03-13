@@ -1,14 +1,17 @@
 <template>
-  <div></div>
+  <div id="card">
+    <h1>{{ student }}</h1>
+  </div>
 </template>
 
 <script>
-import { computed } from "@vue/reactivity";
+// import { computed } from "@vue/reactivity";
 
 export default {
-  Items() {
+  Data() {
     return {
-      items: [
+      student: "Jason",
+      /*  items: [
         {
           Name: "Watermelon",
           text: "Fun fact: The first recorded watermelon harvest occurred nearly 5,000 years ago in Egypt.",
@@ -69,12 +72,15 @@ export default {
           Name: "Raspberries",
           text: "Fun fact: Red raspberries are the most widely known, but Gold raspberries are the sweetest.",
         },
-      ],
+      ], */
     };
-
-    computed;
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-size: 50px;
+  background-color: blueviolet;
+}
+</style>
