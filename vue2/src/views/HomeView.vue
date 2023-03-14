@@ -1,11 +1,16 @@
 <script setup>
-import TheWelcome from "../components/TheWelcome.vue";
-import items from "../components/items.vue";
+// import items from "../components/items.vue";
 </script>
 
 <template>
   <main>
     <TheWelcome />
-    <items />
+    <!--     <items /> -->
   </main>
 </template>
+
+<style>
+body {
+  background-color: brown;
+}
+</style>
