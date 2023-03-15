@@ -1,8 +1,14 @@
+<script setup>
+// import { items } from "@/main";
+</script>
+
+console.log(items)
 <template>
   <div class="parent">
     <div class="card" v-for="item in items">
-      <h3>{{ item.Name }}</h3>
-      <h3>{{ item.text }}</h3>
+      <h3 class="name">{{ item.Name }}</h3>
+      <h3 class="text">{{ item.text }}</h3>
+      <button class="btn">Add To Cart</button>
     </div>
   </div>
 </template>
@@ -22,11 +28,11 @@ export default {
         },
         {
           Name: "Orange",
-          text: "Fun fact: There are over 600 varieties of oranges.",
+          text: "Fun fact: There are over 600 varieties of oranges, and Oranges are the largest citrus fruit in the world.",
         },
         {
           Name: "Mango",
-          text: "Fun fact: Mangos were first grown in India over 5,000 years ago.",
+          text: "Fun fact: Mangos were first grown in India over 5,000 years ago, and it is the national fruit of three countries.",
         },
         {
           Name: "Dragon Fruit",
@@ -42,7 +48,7 @@ export default {
         },
         {
           Name: "Grapes",
-          text: "Fun fact: Grapes Are Actually Berries.",
+          text: "Fun fact: Grapes Are Actually Berries, this is because a berrys defination is a fruit that is derived from a single ovary of an individual flower.",
         },
         {
           Name: "Blueberries",
@@ -59,13 +65,16 @@ export default {
 </script>
 
 <style>
+.body {
+  margin: auto;
+}
 .parent {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 90%;
+  width: 75rem;
   margin: auto;
 }
 
@@ -75,6 +84,24 @@ export default {
   width: 20rem;
   height: 15rem;
   margin-top: 3rem;
-  padding: 2rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.name {
+  font-size: 2.3rem;
+}
+
+.text {
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 0.4rem;
+  margin-top: 0.7rem;
+  background-color: rgb(162, 0, 255);
+  border-radius: 2rem;
 }
 </style>

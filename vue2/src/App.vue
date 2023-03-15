@@ -1,10 +1,12 @@
 <script setup>
 /* import { RouterLink, RouterView } from "vue-router"; */
-import items from "../components/items.vue";
+import items from "@/components/items.vue";
 </script>
 
 <template>
-  <items />
+  <main>
+    <items />
+  </main>
   <!-- 
   <header>
     <img
