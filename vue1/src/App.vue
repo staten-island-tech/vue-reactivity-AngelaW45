@@ -1,14 +1,12 @@
 <script setup>
-/* import { RouterLink, RouterView } from "vue-router"; */
-import items from "@/components/items.vue";
+/* import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue"; */
+import items from "@/components/FruitItems.vue";
 </script>
 
 <template>
-  <main>
-    <items />
-  </main>
-  <!-- 
-  <header>
+  <items />
+  <!-- <header>
     <img
       alt="Vue logo"
       class="logo"
@@ -30,8 +28,8 @@ import items from "@/components/items.vue";
   <RouterView /> -->
 </template>
 
-<style scoped>
-/* header {
+<!-- <style scoped>
+header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -91,5 +89,6 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-} */
+}
 </style>
+ -->
