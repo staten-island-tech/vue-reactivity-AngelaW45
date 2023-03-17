@@ -1,4 +1,7 @@
 <template>
+  <h1 class="header">Fruit Market</h1>
+  <button class="Btn">Cart List</button>
+
   <div class="parent">
     <div class="card" v-for="item in items">
       <h2 class="name">{{ item.name }}</h2>
@@ -53,19 +56,19 @@ export default {
         },
         {
           name: "Strawberries",
-          amount: 25,
+          amount: "1 box",
           text: "Fun fact: Strawberries are the only fruit with seeds on the outside, and since the seeds are on the outside, strawberries aren't true berries.",
           price: 12,
         },
         {
           name: "Grapes",
-          amount: 40,
+          amount: "1 box",
           text: "Fun fact: Grapes Are Actually Berries, this is because a berrys defination is a fruit that is derived from a single ovary of an individual flower.",
           price: 14,
         },
         {
           name: "Blueberries",
-          amount: 40,
+          amount: "1 box",
           text: "Fun fact: Blueberries were called “star fruits” by North American people (because of the five-pointed star shape formed at the end of the berry.)",
           price: 15,
         },
@@ -82,45 +85,61 @@ export default {
 </script>
 
 <style>
-.body {
+body {
   margin: auto;
+  text-align: center;
 }
+
 .parent {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 75rem;
+  width: 65vw;
   margin: auto;
 }
 
 .card {
   color: black;
   background-color: blueviolet;
-  width: 20rem;
-  height: 15rem;
-  margin-top: 3rem;
-  padding: 1rem;
+  width: 25rem;
+  margin-top: 3.5rem;
+  padding: 1.5rem;
   border-radius: 2rem;
   text-align: center;
 }
 
 .name {
   font-size: 2.3rem;
+  margin: auto;
+}
+
+.header {
+  font-size: 6.5rem;
+  margin: auto;
 }
 
 .text {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin: auto;
 }
 
 .Text {
   font-size: 1.3rem;
 }
 
+.Btn {
+  font-size: 2rem;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background-color: rgb(162, 0, 255);
+  border-radius: 2rem;
+}
+
 .btn {
   font-size: 1rem;
-  padding: 0.4rem;
+  padding: 0.5rem;
   margin-top: 0.7rem;
   background-color: rgb(162, 0, 255);
   border-radius: 2rem;
