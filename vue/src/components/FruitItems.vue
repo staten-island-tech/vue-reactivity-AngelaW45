@@ -1,22 +1,13 @@
-<template>
-  <h1 class="header">Fruit Market</h1>
-  <button class="Btn">Cart List</button>
-
-  <div class="parent">
-    <div class="card" v-for="item in items">
-      <h2 class="name">{{ item.name }}</h2>
-      <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
-      <h4 class="Text">Price: ${{ item.price }}</h4>
-      <h5 class="text">{{ item.text }}</h5>
-      <button class="btn">Add To Cart</button>
-    </div>
-  </div>
-</template>
+<script setup>
+import { store } from "../store.js";
+</script>
 
 <script>
 export default {
   data() {
     return {
+      count: 0,
+      addToCart: "",
       items: [
         {
           name: "Watermelon",
@@ -81,8 +72,35 @@ export default {
       ],
     };
   },
+
+  /*   methods: {
+    addToCart() {
+      this.count++;
+    },
+  }, */
 };
 </script>
+
+<template>
+  <h1 class="header">Fruit Market</h1>
+  <button class="Btn">Cart List</button>
+
+  <div class="parent">
+    <div class="card" v-for="item in items">
+      <h2 class="name">{{ item.name }}</h2>
+      <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
+      <h4 class="Text">Price: ${{ item.price }}</h4>
+      <h5 class="text">{{ item.text }}</h5>
+      <div class="cart">
+        <button @clicked="store.count++" class="btn">
+          Add To Cart: {{ store.count }}
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- @clicked="store.count++" Add To Cart: {{ store.count }} -->
 
 <style>
 body {
@@ -108,6 +126,9 @@ body {
   padding: 1.5rem;
   border-radius: 2rem;
   text-align: center;
+}
+
+.cart {
 }
 
 .name {
