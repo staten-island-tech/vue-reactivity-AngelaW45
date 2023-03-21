@@ -6,6 +6,7 @@ import { store } from "../store.js";
 export default {
   data() {
     return {
+      store,
       count: 0,
       addToCart: "",
       items: [
@@ -72,10 +73,9 @@ export default {
       ],
     };
   },
-
   /*   methods: {
     addToCart() {
-      this.count++;
+      this.items.push({ text: this.addToCart });
     },
   }, */
 };
@@ -83,8 +83,9 @@ export default {
 
 <template>
   <h1 class="header">Fruit Market</h1>
-  <button class="Btn">Cart List</button>
-
+  <button @click="store.increment()" class="Btn">
+    Cart List: {{ store.count }}
+  </button>
   <div class="parent">
     <div class="card" v-for="item in items">
       <h2 class="name">{{ item.name }}</h2>
@@ -92,15 +93,13 @@ export default {
       <h4 class="Text">Price: ${{ item.price }}</h4>
       <h5 class="text">{{ item.text }}</h5>
       <div class="cart">
-        <button @clicked="store.count++" class="btn">
+        <button @click="store.increment()" class="btn">
           Add To Cart: {{ store.count }}
         </button>
       </div>
     </div>
   </div>
 </template>
-
-<!-- @clicked="store.count++" Add To Cart: {{ store.count }} -->
 
 <style>
 body {
@@ -166,3 +165,4 @@ body {
   border-radius: 2rem;
 }
 </style>
+-->
