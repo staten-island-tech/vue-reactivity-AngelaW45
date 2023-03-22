@@ -8,9 +8,10 @@ export default {
     return {
       store,
       count: 0,
-      addToCart: "",
+      addToCart: [],
       items: [
         {
+          id: id++,
           name: "Watermelon",
           amount: 1,
           text: "Fun fact: The first recorded watermelon harvest occurred nearly 5,000 years ago in Egypt.",
@@ -73,11 +74,14 @@ export default {
       ],
     };
   },
-  /*   methods: {
+  methods: {
     addToCart() {
       this.items.push({ text: this.addToCart });
     },
-  }, */
+    // removeItem(item) {
+    //   this.items = this.items.filter((t) => t !== item);
+    // },
+  },
 };
 </script>
 
@@ -86,12 +90,23 @@ export default {
   <button @click="store.increment()" class="Btn">
     Cart List: {{ store.count }}
   </button>
+
+  <div class="list">
+    <div class="Lcard" v-for="item in items">
+      <h2 class="ltext">
+        {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }}
+        <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
+      </h2>
+    </div>
+  </div>
+
   <div class="parent">
     <div class="card" v-for="item in items">
       <h2 class="name">{{ item.name }}</h2>
       <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
       <h4 class="Text">Price: ${{ item.price }}</h4>
       <h5 class="text">{{ item.text }}</h5>
+
       <div class="cart">
         <button @click="store.increment()" class="btn">
           Add To Cart: {{ store.count }}
@@ -125,6 +140,19 @@ body {
   padding: 1.5rem;
   border-radius: 2rem;
   text-align: center;
+}
+
+.Lcard {
+  color: black;
+  text-align: center;
+}
+
+.list {
+  background-color: blueviolet;
+  width: 35rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  margin: auto;
 }
 
 .cart {
@@ -165,4 +193,3 @@ body {
   border-radius: 2rem;
 }
 </style>
--->
