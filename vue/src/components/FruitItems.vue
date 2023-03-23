@@ -8,10 +8,10 @@ export default {
     return {
       store,
       count: 0,
-      addToCart: [],
+      addToCart: false,
       items: [
         {
-          id: id++,
+          // id: id++,
           name: "Watermelon",
           amount: 1,
           text: "Fun fact: The first recorded watermelon harvest occurred nearly 5,000 years ago in Egypt.",
@@ -75,9 +75,13 @@ export default {
     };
   },
   methods: {
-    addToCart() {
-      this.items.push({ text: this.addToCart });
+    toggle() {
+      this.addToCart = !this.addToCart;
     },
+
+    /* addToCart() {
+      this.items.push({ text: this.addToCart });
+    }, */
     // removeItem(item) {
     //   this.items = this.items.filter((t) => t !== item);
     // },
@@ -87,18 +91,21 @@ export default {
 
 <template>
   <h1 class="header">Fruit Market</h1>
-  <button @click="store.increment()" class="Btn">
-    Cart List: {{ store.count }}
-  </button>
 
-  <div class="list">
-    <div class="Lcard" v-for="item in items">
-      <h2 class="ltext">
-        {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }}
-        <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
-      </h2>
+  <button @click="toggle" class="Btn">Cart List: {{ store.count }}</button>
+
+  <h1 v-if="addToCart">
+    <div class="list">
+      <div class="Lcard" v-for="item in items">
+        <h2 class="ltext">
+          {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }}
+          <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
+        </h2>
+      </div>
     </div>
-  </div>
+  </h1>
+
+  <h1 v-else></h1>
 
   <div class="parent">
     <div class="card" v-for="item in items">
@@ -143,6 +150,7 @@ body {
 }
 
 .Lcard {
+  font-size: 1.3rem;
   color: black;
   text-align: center;
 }
