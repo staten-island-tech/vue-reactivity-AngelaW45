@@ -8,6 +8,7 @@ export default {
     return {
       store,
       count: 0,
+      cart: ["items"],
       addToCart: false,
       items: [
         {
@@ -75,16 +76,26 @@ export default {
     };
   },
   methods: {
-    toggle() {
+    toggle(event) {
       this.addToCart = !this.addToCart;
+      `${this.cart}`;
+      if (event) {
+        event.target.Cart;
+      }
     },
 
-    /* addToCart() {
-      this.items.push({ text: this.addToCart });
+    /*     cart(event) {
+      `${this.cart}`;
+      if (event) {
+        event.target.cart;
+      }
     }, */
-    // removeItem(item) {
-    //   this.items = this.items.filter((t) => t !== item);
-    // },
+    /*     Add() {
+      this.items.push({ text: this.items });
+    }, */
+    /* removeItem(item) {
+      this.items = this.items.filter((t) => t !== item);
+    }, */
   },
 };
 </script>
@@ -96,13 +107,13 @@ export default {
 
   <h1 v-if="addToCart">
     <div class="list">
-      <div class="Lcard" v-for="item in items">
-        <h2 class="ltext">
-          {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }}
-          <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
-        </h2>
-      </div>
+      <!-- <div class="Lcard" v-for="item in items"> -->
+      <!-- <h2 class="ltext"> -->
+      <!-- {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }} -->
+      <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
+      <!-- </h2> -->
     </div>
+    <!-- </div> -->
   </h1>
 
   <h1 v-else></h1>
@@ -115,9 +126,7 @@ export default {
       <h5 class="text">{{ item.text }}</h5>
 
       <div class="cart">
-        <button @click="store.increment()" class="btn">
-          Add To Cart: {{ store.count }}
-        </button>
+        <button @click="store.increment()" class="btn">Add To Cart</button>
       </div>
     </div>
   </div>
