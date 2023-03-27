@@ -8,7 +8,7 @@ export default {
     return {
       store,
       count: 0,
-      cart: ["items"],
+      fruits: [""],
       addToCart: false,
       items: [
         {
@@ -76,12 +76,9 @@ export default {
     };
   },
   methods: {
-    toggle(event) {
+    toggle() {
+      // this.fruits.push("HELLOO");
       this.addToCart = !this.addToCart;
-      `${this.cart}`;
-      if (event) {
-        event.target.Cart;
-      }
     },
 
     /*     cart(event) {
@@ -103,9 +100,15 @@ export default {
 <template>
   <h1 class="header">Fruit Market</h1>
 
-  <button @click="toggle" class="Btn">Cart List: {{ store.count }}</button>
+  <button @click="toggle" class="Btn" id="Btn">
+    Cart List: {{ store.count }}
+  </button>
 
   <h1 v-if="addToCart">
+    <div class="list" v-for="fruit in fruits">
+      {{ fruit }}
+    </div>
+
     <div class="list">
       <!-- <div class="Lcard" v-for="item in items"> -->
       <!-- <h2 class="ltext"> -->
@@ -167,7 +170,6 @@ body {
 .list {
   background-color: blueviolet;
   width: 35rem;
-  border-radius: 2rem;
   padding: 1.5rem;
   margin: auto;
 }
