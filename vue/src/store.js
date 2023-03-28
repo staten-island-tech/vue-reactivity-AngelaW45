@@ -5,9 +5,6 @@ export const store = reactive({
   count: 0,
   increment() {
     this.count++;
-
-    this.fruits.push("HELLOO");
-
     /* AddCart.push("Hello");
       document.getElementById("Btn").innerHTML = AddCart; */
 
@@ -15,5 +12,11 @@ export const store = reactive({
     if (event) {
       alert(event.target.Cart);
     } */
+  },
+
+  fruits: [""],
+  ADD() {
+    this.fruits.push("HELLOO");
+    console.log(this.fruits);
   },
 });

@@ -9,7 +9,7 @@ export default {
       store,
       count: 0,
       fruits: [""],
-      addToCart: false,
+      Cart: false,
       items: [
         {
           // id: id++,
@@ -78,7 +78,7 @@ export default {
   methods: {
     toggle() {
       // this.fruits.push("HELLOO");
-      this.addToCart = !this.addToCart;
+      this.Cart = !this.Cart;
     },
 
     /*     cart(event) {
@@ -104,19 +104,19 @@ export default {
     Cart List: {{ store.count }}
   </button>
 
-  <h1 v-if="addToCart">
+  <h1 v-if="Cart">
     <div class="list" v-for="fruit in fruits">
       {{ fruit }}
     </div>
 
-    <div class="list">
-      <!-- <div class="Lcard" v-for="item in items"> -->
-      <!-- <h2 class="ltext"> -->
-      <!-- {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }} -->
-      <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
-      <!-- </h2> -->
-    </div>
-    <!-- </div> -->
+    <!-- <div class="list">
+      <div class="Lcard" v-for="item in items">
+        <h2 class="ltext">
+          {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }} -->
+    <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
+    <!-- </h2>
+      </div>
+    </div> -->
   </h1>
 
   <h1 v-else></h1>
@@ -129,7 +129,15 @@ export default {
       <h5 class="text">{{ item.text }}</h5>
 
       <div class="cart">
-        <button @click="store.increment()" class="btn">Add To Cart</button>
+        <button
+          @click="
+            store.increment();
+            store.ADD();
+          "
+          class="btn"
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   </div>
