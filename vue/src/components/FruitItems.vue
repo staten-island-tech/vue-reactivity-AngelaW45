@@ -81,8 +81,10 @@ export default {
     },
 
     ADD() {
-      this.items.push === this.items.name, this.fruits.push();
-      // console.log(this.fruits);
+      this.items.name === this.items.name,
+      
+      this.fruits.push("hello");
+      console.log(this.fruits);
     },
   },
 
