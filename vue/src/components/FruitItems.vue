@@ -12,7 +12,6 @@ export default {
       Cart: false,
       items: [
         {
-          // id: id++,
           name: "Watermelon",
           amount: 1,
           text: "Fun fact: The first recorded watermelon harvest occurred nearly 5,000 years ago in Egypt.",
@@ -81,19 +80,18 @@ export default {
       this.Cart = !this.Cart;
     },
 
-    /*     cart(event) {
-      `${this.cart}`;
-      if (event) {
-        event.target.cart;
-      }
-    }, */
-    /*     Add() {
+    ADD() {
+      this.items.push === this.items.name, this.fruits.push();
+      // console.log(this.fruits);
+    },
+  },
+
+  /*     Add() {
       this.items.push({ text: this.items });
     }, */
-    /* removeItem(item) {
+  /* removeItem(item) {
       this.items = this.items.filter((t) => t !== item);
     }, */
-  },
 };
 </script>
 
@@ -132,7 +130,7 @@ export default {
         <button
           @click="
             store.increment();
-            store.ADD();
+            ADD();
           "
           class="btn"
         >

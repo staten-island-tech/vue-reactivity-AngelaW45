@@ -13,10 +13,4 @@ export const store = reactive({
       alert(event.target.Cart);
     } */
   },
-
-  fruits: [""],
-  ADD() {
-    this.fruits.push("HELLOO");
-    console.log(this.fruits);
-  },
 });
