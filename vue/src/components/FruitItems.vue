@@ -1,5 +1,6 @@
 <script setup>
 import { store } from "../store.js";
+import { items } from "../items.js";
 </script>
 
 <script>
@@ -10,7 +11,7 @@ export default {
       count: 0,
       fruits: [""],
       Cart: false,
-      items: [
+      /* items: [
         {
           name: "Watermelon",
           amount: 1,
@@ -71,21 +72,20 @@ export default {
           text: "Fun fact: One lemon tree can produce up to 600 pounds (about 300kgs) of lemons a year.",
           price: 6,
         },
-      ],
+      ], */
     };
   },
+
   methods: {
     toggle() {
-      // this.fruits.push("HELLOO");
       this.Cart = !this.Cart;
     },
-
-    ADD() {
-      this.items.name === this.items.name,
-      
-      this.fruits.push("hello");
+    /* 
+    ADD(name) {
+      const product = this.items.find((FruitName) => FruitName.name === name);
+      this.fruits.push(product);
       console.log(this.fruits);
-    },
+    }, */
   },
 
   /*     Add() {
@@ -132,7 +132,7 @@ export default {
         <button
           @click="
             store.increment();
-            ADD();
+            store.ADD(items.name);
           "
           class="btn"
         >

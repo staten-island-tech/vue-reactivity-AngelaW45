@@ -1,5 +1,6 @@
 // store.js
 import { reactive } from "vue";
+import { items } from "./items.js";
 
 export const store = reactive({
   count: 0,
@@ -12,5 +13,13 @@ export const store = reactive({
     if (event) {
       alert(event.target.Cart);
     } */
+  },
+
+  items,
+
+  ADD(name) {
+    const product = items.find((FruitName) => FruitName.name === name);
+    this.fruits.push(product);
+    console.log(this.fruits);
   },
 });
