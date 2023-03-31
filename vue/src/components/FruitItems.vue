@@ -1,6 +1,7 @@
 <script setup>
 import { store } from "../store.js";
 import { items } from "../items.js";
+import { cart } from "../cart.js";
 </script>
 
 <script>
@@ -8,8 +9,9 @@ export default {
   data() {
     return {
       store,
+      cart,
       count: 0,
-      fruits: [""],
+      fruits: [],
       Cart: false,
       /* items: [
         {
@@ -75,22 +77,11 @@ export default {
       ], */
     };
   },
-
   methods: {
     toggle() {
       this.Cart = !this.Cart;
     },
-    /* 
-    ADD(name) {
-      const product = this.items.find((FruitName) => FruitName.name === name);
-      this.fruits.push(product);
-      console.log(this.fruits);
-    }, */
   },
-
-  /*     Add() {
-      this.items.push({ text: this.items });
-    }, */
   /* removeItem(item) {
       this.items = this.items.filter((t) => t !== item);
     }, */
@@ -105,9 +96,9 @@ export default {
   </button>
 
   <h1 v-if="Cart">
-    <div class="list" v-for="fruit in fruits">
+    <h2 class="list" v-for="fruit in fruits">
       {{ fruit }}
-    </div>
+    </h2>
 
     <!-- <div class="list">
       <div class="Lcard" v-for="item in items">
