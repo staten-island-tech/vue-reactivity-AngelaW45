@@ -81,29 +81,29 @@ export default {
 
     ADD(item) {
       this.AddedToCart.push(item);
-      console.log(this.AddedToCart);
     },
+
+    /* removeItem(item) {
+      this.AddedToCart = this.AddedToCart.filter((t) => t !== item);
+    }, */
   },
 };
 </script>
-
-<!-- removeItem(item) { this.items = this.items.filter((t) => t !== item); }, -->
 
 <template>
   <h1 class="header">Fruit Market</h1>
 
   <button @click="toggle" class="Btn" id="Btn">
-    Cart List: {{ store.count }}
+    Show Cart List: {{ store.count }}
   </button>
 
   <h1 v-if="Cart">
     <div class="list" v-for="item in AddedToCart">
-      <h2 class="name">{{ item.name }}</h2>
-      <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
-      <h4 class="Text">Price: ${{ item.price }}</h4>
+      <h2 class="lcard">
+        {{ item.name }} -- Amount: {{ item.amount }} -- Price: ${{ item.price }}
+        <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
+      </h2>
     </div>
-
-    <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
   </h1>
 
   <h1 v-else></h1>
@@ -111,7 +111,7 @@ export default {
   <div class="parent">
     <div class="card" v-for="item in items">
       <h2 class="name">{{ item.name }}</h2>
-      <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
+      <h3 class="Text">Amount: {{ item.amount }}</h3>
       <h4 class="Text">Price: ${{ item.price }}</h4>
       <h5 class="text">{{ item.text }}</h5>
 
@@ -142,7 +142,7 @@ body {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 65vw;
+  width: 75vw;
   margin: auto;
 }
 
@@ -158,8 +158,13 @@ body {
 
 .list {
   background-color: blueviolet;
-  width: 35rem;
-  padding: 2rem;
+  width: 40rem;
+  padding: 1rem;
+  margin: auto;
+}
+
+.lcard {
+  font-size: 1.5rem;
   margin: auto;
 }
 
@@ -170,7 +175,7 @@ body {
 
 .header {
   font-size: 6.5rem;
-  margin: auto;
+  margin-top: 1rem;
 }
 
 .text {
@@ -180,12 +185,12 @@ body {
 
 .Text {
   font-size: 1.3rem;
+  margin: auto;
 }
 
 .Btn {
   font-size: 2rem;
   padding: 0.8rem;
-  margin-top: 1rem;
   background-color: rgb(162, 0, 255);
   border-radius: 2rem;
 }
@@ -196,5 +201,64 @@ body {
   margin-top: 0.7rem;
   background-color: rgb(162, 0, 255);
   border-radius: 2rem;
+}
+
+@media screen and (max-width: 1280px) {
+  /* laptop, bigger number on top!*/
+  .parent {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  /* ipad 14.7.1 */
+  .card {
+    margin: 3.5rem auto auto auto;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  /* iphone 12/13 PRO max IOS 14.6 */
+  .header {
+    font-size: 2.8rem;
+  }
+
+  .list {
+    width: 17rem;
+    padding: 1rem;
+  }
+
+  .lcard {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 17rem;
+    margin: 2.5rem auto auto auto;
+    padding: 1.5rem;
+  }
+
+  .name {
+    font-size: 1.35rem;
+  }
+
+  .text {
+    font-size: 1.19rem;
+  }
+
+  .Text {
+    font-size: 1.05rem;
+  }
+
+  .Btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
 }
 </style>
