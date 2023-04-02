@@ -1,7 +1,5 @@
 <script setup>
 import { store } from "../store.js";
-import { items } from "../items.js";
-import { cart } from "../cart.js";
 </script>
 
 <script>
@@ -9,11 +7,10 @@ export default {
   data() {
     return {
       store,
-      cart,
       count: 0,
-      fruits: [],
+      AddedToCart: [],
       Cart: false,
-      /* items: [
+      items: [
         {
           name: "Watermelon",
           amount: 1,
@@ -74,19 +71,23 @@ export default {
           text: "Fun fact: One lemon tree can produce up to 600 pounds (about 300kgs) of lemons a year.",
           price: 6,
         },
-      ], */
+      ],
     };
   },
   methods: {
     toggle() {
       this.Cart = !this.Cart;
     },
+
+    ADD(item) {
+      this.AddedToCart.push(item);
+      console.log(this.AddedToCart);
+    },
   },
-  /* removeItem(item) {
-      this.items = this.items.filter((t) => t !== item);
-    }, */
 };
 </script>
+
+<!-- removeItem(item) { this.items = this.items.filter((t) => t !== item); }, -->
 
 <template>
   <h1 class="header">Fruit Market</h1>
@@ -96,18 +97,13 @@ export default {
   </button>
 
   <h1 v-if="Cart">
-    <h2 class="list" v-for="fruit in fruits">
-      {{ fruit }}
-    </h2>
+    <div class="list" v-for="item in AddedToCart">
+      <h2 class="name">{{ item.name }}</h2>
+      <h3 class="Text">Amount of fruit you get: {{ item.amount }}</h3>
+      <h4 class="Text">Price: ${{ item.price }}</h4>
+    </div>
 
-    <!-- <div class="list">
-      <div class="Lcard" v-for="item in items">
-        <h2 class="ltext">
-          {{ item.name }}; Amount: {{ item.amount }}; Price: ${{ item.price }} -->
     <!-- <button class="btn" @click="removeItem(item)">Cancel</button> -->
-    <!-- </h2>
-      </div>
-    </div> -->
   </h1>
 
   <h1 v-else></h1>
@@ -123,7 +119,7 @@ export default {
         <button
           @click="
             store.increment();
-            store.ADD(items.name);
+            ADD(item);
           "
           class="btn"
         >
@@ -160,20 +156,11 @@ body {
   text-align: center;
 }
 
-.Lcard {
-  font-size: 1.3rem;
-  color: black;
-  text-align: center;
-}
-
 .list {
   background-color: blueviolet;
   width: 35rem;
-  padding: 1.5rem;
+  padding: 2rem;
   margin: auto;
-}
-
-.cart {
 }
 
 .name {
